@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skyline · Weather</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="card">
+    <h1>Skyline</h1>
+
+    <form id="searchForm">
+      <input type="text" id="cityInput" placeholder="Enter city name">
+      <button type="submit">Go</button>
+    </form>
+
+    <p id="msg"></p>
+
+    <div id="result" class="hide">
+      <div class="head">
+        <div>
+          <h2 id="cityName"></h2>
+          <p id="desc"></p>
+        </div>
+        <img id="icon" alt="">
+      </div>
+
+      <p class="temp"><span id="temp"></span>°C</p>
+      <p class="feels">Feels like <span id="feels"></span>°C</p>
+
+      <ul class="details">
+        <li><small>Humidity</small><b id="hum"></b></li>
+        <li><small>Wind</small><b id="wind"></b></li>
+        <li><small>Pressure</small><b id="press"></b></li>
+        <li><small>Visibility</small><b id="vis"></b></li>
+        <li><small>Sunrise</small><b id="rise"></b></li>
+        <li><small>Sunset</small><b id="set"></b></li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
