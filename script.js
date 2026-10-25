@@ -4,19 +4,29 @@ var form = document.getElementById("searchForm");
 var cityInput = document.getElementById("cityInput");
 var msg = document.getElementById("msg");
 var result = document.getElementById("result");
-var body = documet.querySelector("body");
-var button = documet.querySelector("#theme");
-var bool = false
-button.addEventlistener("click",()=>{
-  if(bool == false){
-    body.style.background = "white";
-  bool = true;
-  }
-  else{
-    body.style.background ="black";  
-    bool = false;
-  }
-})
+var themeButton = document.getElementById("theme");
+var savedTheme = localStorage.getItem("theme");
+var initialTheme =
+  savedTheme === "light" || savedTheme === "dark"
+    ? savedTheme
+    : window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+
+function setTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+  themeButton.setAttribute("aria-pressed", String(theme === "dark"));
+}
+
+setTheme(initialTheme);
+
+themeButton.addEventListener("click", function () {
+  var nextTheme =
+    document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  setTheme(nextTheme);
+  localStorage.setItem("theme", nextTheme);
+});
+
 form.onsubmit = function (e) {
   e.preventDefault();
   var city = cityInput.value.trim();
