@@ -4,7 +4,19 @@ var form = document.getElementById("searchForm");
 var cityInput = document.getElementById("cityInput");
 var msg = document.getElementById("msg");
 var result = document.getElementById("result");
-
+var body = documet.querySelector("body");
+var button = documet.querySelector("#theme");
+var bool = false
+button.addEventlistener("click",()=>{
+  if(bool == false){
+    body.style.background = "white";
+  bool = true;
+  }
+  else{
+    body.style.background ="black";  
+    bool = false;
+  }
+})
 form.onsubmit = function (e) {
   e.preventDefault();
   var city = cityInput.value.trim();
