@@ -1,4 +1,4 @@
-var API_KEY = "ed14c414ff789093d100fa010c66820a";
+var API_KEY = "";
 
 var form = document.getElementById("searchForm");
 var cityInput = document.getElementById("cityInput");
