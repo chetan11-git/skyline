@@ -1,4 +1,4 @@
-var API_KEY = "";
+var API_KEY = import.meta.env.VITE_OPENWEATHER_API_KEY;
 
 var form = document.getElementById("searchForm");
 var cityInput = document.getElementById("cityInput");
@@ -13,6 +13,13 @@ form.onsubmit = function (e) {
 };
 
 function search(city) {
+  if (!API_KEY) {
+    msg.textContent =
+      "Missing API key. Set VITE_OPENWEATHER_API_KEY in your .env file.";
+    msg.className = "err";
+    return;
+  }
+
   msg.textContent = "Loading...";
   msg.className = "";
   result.className = "hide";
